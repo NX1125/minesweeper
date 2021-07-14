@@ -74,7 +74,7 @@ const Game: React.FC<IProps> = props => {
     const header = game.state !== GameState.PLAYING ? (
         <div className="text-white d-flex flex-row align-items-start">
             <div className="text-white">
-                <h1>Game Over!</h1>
+                <h1 className="h3">Game Over!</h1>
                 <p>{game.state === GameState.LOSER ? 'Loser :(' : 'Winner :)'}</p>
             </div>
             <button type="button"
@@ -92,7 +92,7 @@ const Game: React.FC<IProps> = props => {
     ) : undefined;
 
     return (
-        <div className="App w-100 vh-100 d-flex flex-column justify-content-end align-items-center p-3">
+        <div className="App w-100 vh-100 d-flex flex-column justify-content-end align-items-center">
             <div className="d-flex flex-column">
                 {header}
                 <div className="mt-auto">
