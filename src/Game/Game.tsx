@@ -8,6 +8,7 @@ import generateMineField from "../util/generateMineField";
 import floodFill from "../util/floodFill";
 import revealMines from "../util/revealMines";
 import nextMarker from "../util/nextMarker";
+import countOfRevealedSlots from "../util/countOfRevealedSlots";
 
 import MineField from "../MineField/MineField";
 
@@ -59,10 +60,17 @@ const Game: React.FC<IProps> = props => {
                     field: revealMines(game.field),
                 }));
             } else {
-                setGame(game => ({
-                    ...game,
-                    field: floodFill(x, y, game.field, props.width),
-                }));
+                setGame(game => {
+                    const field = floodFill(x, y, game.field, props.width);
+                    const revealedCount = countOfRevealedSlots(field);
+                    return {
+                        ...game,
+                        field,
+                        state: (props.width * props.height - revealedCount) === props.minesCount
+                            ? GameState.WINNER
+                            : GameState.PLAYING,
+                    };
+                });
             }
         }
     };
