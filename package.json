@@ -5,6 +5,11 @@
   "license": "MIT",
   "description": "Minesweeper game in Dark Mode written with React",
   "main": "main.js",
+  "repository": "https://github.com/NX1125/minesweeper",
+  "author": {
+    "name": "Guilherme Goldner da Silva",
+    "email": "guilhermegoldnerdasilva@gmail.com"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
