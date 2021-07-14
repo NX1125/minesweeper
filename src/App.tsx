@@ -9,7 +9,7 @@ import NewGameRoute from "./NewGameRoute/NewGameRoute";
 
 const App = () => {
     return (
-        <div className="App w-100 vh-100 d-flex justify-content-center align-items-center overflow-hidden">
+        <div className="App w-100 vh-100 d-flex flex-column justify-content-center align-items-center overflow-hidden">
             <BrowserRouter>
                 <Switch>
                     <Route path="/game"
@@ -18,6 +18,9 @@ const App = () => {
                            component={NewGameRoute}/>
                 </Switch>
             </BrowserRouter>
+            <p className="small text-secondary align-self-end ms-auto me-5">
+                v{process.env.REACT_APP_VERSION}
+            </p>
         </div>
     );
 };
