@@ -1,0 +1,44 @@
+$mine-size: 1.5rem;
+
+.MineButtonWrapper {
+}
+
+.MineField {
+}
+
+.MineButton {
+  width: $mine-size;
+  height: $mine-size;
+
+  max-width: $mine-size;
+  max-height: $mine-size;
+
+  outline: none;
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 1px;
+
+  color: #d2d2d2;
+
+  margin: 1px;
+
+  line-height: 0;
+}
+
+.line-height-none {
+  line-height: 0;
+}
+
+.MineButton:not([data-revealed=true]):not(:disabled):not(:active):hover {
+  background-color: #444;
+}
+
+.MineButton:not([data-revealed=true]):active {
+  background-color: #222;
+}
+
+.MineButton[data-revealed=true] {
+  background-color: #202020;
+  border: none;
+}
+
