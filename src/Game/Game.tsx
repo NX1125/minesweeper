@@ -71,35 +71,34 @@ const Game: React.FC<IProps> = props => {
         setGame(newGame(props));
     };
 
-    const header = game.state !== GameState.PLAYING ? (
-        <div className="text-white d-flex flex-row align-items-start">
-            <div className="text-white">
-                <h1 className="h3">Game Over!</h1>
-                <p>{game.state === GameState.LOSER ? 'Loser :(' : 'Winner :)'}</p>
-            </div>
-            <button type="button"
-                    className="btn btn-primary ms-auto"
-                    onClick={onNewGame}>
-                <i className="bi bi-arrow-clockwise me-2"/>
-                New Game
-            </button>
-            <Link to={`/?width=${props.width}&height=${props.height}&mines=${props.minesCount}`}
-                  className="btn btn-outline-secondary ms-2">
-                <i className="bi bi-gear me-2"/>
-                Config
-            </Link>
-        </div>
-    ) : undefined;
+    const header = game.state === GameState.PLAYING ? 'Minesweeper' : 'Game Over!';
+    const status = game.state !== GameState.PLAYING ? (
+        game.state === GameState.WINNER ? 'Winner :)' : 'Loser :('
+    ) : 'Good Luck!';
 
     return (
-        <div className="App w-100 vh-100 d-flex flex-column justify-content-end align-items-center">
-            <div className="d-flex flex-column">
-                {header}
-                <div className="mt-auto">
-                    <MineField field={game.field}
-                               isDisabled={game.state !== GameState.PLAYING}
-                               onClick={onUpdateMine}/>
+        <div className="App w-100 d-flex flex-column justify-content-end align-items-center">
+            <div className="d-flex flex-column my-auto">
+                <div className="text-white d-flex flex-row align-items-start">
+                    <div className="text-white">
+                        <h1 className="h3">{header}</h1>
+                        <p>{status}</p>
+                    </div>
+                    <button type="button"
+                            className="btn btn-primary ms-auto"
+                            onClick={onNewGame}>
+                        <i className="bi bi-arrow-clockwise me-2"/>
+                        New Game
+                    </button>
+                    <Link to={`/?width=${props.width}&height=${props.height}&mines=${props.minesCount}`}
+                          className="btn btn-outline-secondary ms-2">
+                        <i className="bi bi-gear me-2"/>
+                        Config
+                    </Link>
                 </div>
+                <MineField field={game.field}
+                           isDisabled={game.state !== GameState.PLAYING}
+                           onClick={onUpdateMine}/>
             </div>
         </div>
     );
