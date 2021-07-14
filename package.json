@@ -2,6 +2,9 @@
   "name": "minesweeper",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "description": "Minesweeper game in Dark Mode written with React",
+  "main": "main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -22,13 +25,15 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "@types/react-router-dom": "5.1.8"
+    "@types/react-router-dom": "5.1.8",
+    "electron": "^13.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-start": "electron ."
   },
   "eslintConfig": {
     "extends": [
